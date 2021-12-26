@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Homer{% endblock %}
+
+{% block body %}
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <p class="title">
+                {{ config.title }}
+            </p>
+            <p class="subtitle">
+                {{ config.subtitle }}
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            {% for service in config.services %}
+            <h2 class="title is-4">
+                {{ service.name }}
+            </h2>
+
+            <div class="columns is-multiline">
+                {% for item in service.items %}
+                <div class="column is-4">
+                    <div class="card">
+                        <a href="{{ item.url }}">
+                            <div class="card-content">
+                                <div class="media">
+                                    {% if item.logo is defined and item.logo %}
+                                        <div class="media-left">
+                                            <figure class="image is-48x48">
+                                                <img src="{{ item.logo }}" alt="{{ item.name }}" lazyload>
+                                            </figure>
+                                        </div>
+                                    {% endif %}
+
+                                    <div class="media-content">
+                                        <p class="title is-5">{{ item.name }}</p>
+                                        <p class="subtitle is-6">{{ item.subtitle }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
