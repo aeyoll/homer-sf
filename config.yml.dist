@@ -1,0 +1,9 @@
+title: "Dashboard"
+subtitle: "My company"
+services:
+  - name: "Applications"
+    items:
+      - name: "Gitlab"
+        subtitle: "Our own private gitlab instance"
+        url: "https://git.my-company.com/"
+        logo: "static/tools/gitlab.png"
